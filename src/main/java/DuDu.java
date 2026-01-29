@@ -12,6 +12,13 @@ public class DuDu {
         while(true) {
             Scanner scan = new Scanner(System.in);
             inData = scan.nextLine();
+
+            if (inData.contains("bye")){
+                System.out.println("Bye. Hope to see you again soon!");
+                System.out.println("-------------------------------------------");
+                break;
+            }
+
             if (inData.equalsIgnoreCase("list")) {
                 for (int i = 0; i < count; i++) {
                     System.out.println(count + ". " + list[i]);
@@ -26,11 +33,6 @@ public class DuDu {
 
 
 
-            if (inData.contains("bye")){
-                System.out.println("Bye. Hope to see you again soon!");
-                System.out.println("-------------------------------------------");
-                break;
-            }
         }
     }
 }
