@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class DuDu {
 
     private static final int MAX_TASKS = 100;
@@ -15,7 +16,7 @@ public class DuDu {
         Scanner scan = new Scanner(System.in);
         Task[] tasks = new Task[MAX_TASKS];
 
-        int count = 0;
+        int count = Storage.load(tasks);
 
         while (true) {
             try {
@@ -49,6 +50,7 @@ public class DuDu {
                         throw new DuDuException("Task number does not exist.");
                     }
                     tasks[index].setDone(true);
+                    Storage.save(tasks, count);
                     System.out.println(LINE);
                     System.out.println("Nice! I've marked this task as done:");
                     System.out.println("  " + tasks[index]);
@@ -63,6 +65,7 @@ public class DuDu {
                         throw new DuDuException("Task number does not exist.");
                     }
                     tasks[index].setDone(false);
+                    Storage.save(tasks, count);
                     System.out.println(LINE);
                     System.out.println("OK, I've marked this task as not done yet:");
                     System.out.println("  " + tasks[index]);
@@ -104,6 +107,7 @@ public class DuDu {
                 System.out.println("Got it. I've added this task:");
                 System.out.println("  " + tasks[count]);
                 count++;
+                Storage.save(tasks, count);
                 System.out.println("Now you have " + count + " tasks in the list.");
                 System.out.println(LINE);
             }

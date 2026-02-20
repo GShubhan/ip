@@ -7,6 +7,11 @@ public class Task {
         this.isDone = false;
     }
 
+    public String toFileFormat() {
+        String status = isDone ? "1" : "0";
+        return "T | " + status + " | " + description;
+    }
+
     public String getStatusIcon() {
         return (isDone ? "X" : " ");
     }
