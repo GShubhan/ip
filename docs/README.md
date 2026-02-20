@@ -1,4 +1,4 @@
-# DuDu User Guide
+# Duke.DuDu User Guide
 
 // Update the title above to match the actual product name
 

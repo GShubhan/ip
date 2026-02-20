@@ -1,3 +1,5 @@
+package Duke;
+
 import java.util.Scanner;
 
 
@@ -9,7 +11,7 @@ public class DuDu {
     public static void main(String[] args) {
 
         System.out.println(LINE);
-        System.out.println("Hello! I'm DuDu");
+        System.out.println("Hello! I'm Duke.DuDu");
         System.out.println("What can I do for you?");
         System.out.println(LINE);
 
@@ -47,7 +49,7 @@ public class DuDu {
                 if (inData.startsWith("mark ")) {
                     int index = Integer.parseInt(inData.substring(5)) - 1;
                     if (index < 0 || index >= count) {
-                        throw new DuDuException("Task number does not exist.");
+                        throw new DuDuException("Duke.Task number does not exist.");
                     }
                     tasks[index].setDone(true);
                     Storage.save(tasks, count);
@@ -62,7 +64,7 @@ public class DuDu {
                 if (inData.startsWith("unmark ")) {
                     int index = Integer.parseInt(inData.substring(7)) - 1;
                     if (index < 0 || index >= count) {
-                        throw new DuDuException("Task number does not exist.");
+                        throw new DuDuException("Duke.Task number does not exist.");
                     }
                     tasks[index].setDone(false);
                     Storage.save(tasks, count);
@@ -82,14 +84,14 @@ public class DuDu {
                 } else if (inData.startsWith("deadline ")) {
                     String[] parts = inData.substring(9).split(" /by ");
                     if (parts.length < 2) {
-                        throw new DuDuException("Deadline must include /by.");
+                        throw new DuDuException("Duke.Deadline must include /by.");
                     }
                     tasks[count] = new Deadline(parts[0], parts[1]);
 
                 } else if (inData.startsWith("event ")) {
                     String[] parts = inData.substring(6).split(" /from | /to ");
                     if (parts.length < 3) {
-                        throw new DuDuException("Event must include /from and /to.");
+                        throw new DuDuException("Duke.Event must include /from and /to.");
                     }
                     tasks[count] = new Event(parts[0], parts[1], parts[2]);
 
